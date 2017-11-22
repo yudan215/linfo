@@ -81,7 +81,7 @@ class Windows extends OS
     public function getOS()
     {
         foreach ($this->wmi->ExecQuery('SELECT Caption FROM Win32_OperatingSystem') as $os) {
-            return $os->Caption;
+            return iconv("GB2312","UTF-8",$os->Caption);
         }
 
         return 'Windows';
